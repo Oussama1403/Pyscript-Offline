@@ -1,0 +1,22 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "pwa",
+  "short_name": "pwa",
+  "scope": "/",
+  "background_color" : "#FCFCFC",
+  "theme_color" : "#146EFC",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "a progressive web app with pyscript",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
+

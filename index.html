@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>HexToBin</title>
+      
+      <!-- Pyscript -->
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+      
+      <!-- bootstrap for styling , Pyscript can also be used for styling instead of bootstrap -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      
+      <!-- roboto font -->
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+      <!-- pwa -->
+      <link rel="manifest" href="pwa/manifest.json">
+      <script src="pwa/app.js"></script>
+
+      <style>
+         body {
+         font-family:roboto;
+         background-color: #fcfcfc;
+         padding-top: 55px;
+         min-height: 100vh;
+         margin:0;
+         display:flex;
+         flex-direction:column;
+         }
+      </style>
+   
+   </head>
+   <body>
+    <!-- write your Python code in py-script tag -->
+      <py-script>
+
+from js import document,alert
+
+def Dec(hex):
+    dec = 0
+    p = 1
+    for i in range(len(hex)-1,-1,-1):
+        if hex[i] >= 'A':
+            dec = dec + (ord(hex[i])-55) * p
+        else:
+            dec = dec + int(hex[i]) * p    
+        p = p * 16
+    return dec    
+
+def Bin(dec):
+    bin = ""
+    while dec != 0:
+        r = dec % 2
+        bin = str(r) + bin
+        dec = int(dec/2)
+    return bin
+
+def run(*ags, **kws):
+    # get hex number
+    hex = document.getElementById('hex').value;
+    if all(['1'<=i<='9' or 65<=ord(i)<=70 for i in hex]): # check if hex number
+        # convert it to a decimal number
+        dec = Dec(hex)
+        # convert it to binary
+        bin = Bin(dec)
+        pyscript.write("bin_num", bin)
+        pyscript.write("dec_num", dec)
+    else:
+        alert("Please enter an hex number")    
+    
+      </py-script> 
+      <div class="container">
+         <h1 class="text-center">
+            Hex to Binary converter
+            <small class="text-muted">With <a href="https://pyscript.net/" target="_blank"><b>Pyscript</b></a></small>
+         </h1>
+         <br />
+         <p>
+         <h4>Hex number:</h4>
+         <input id="hex" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Enter hex number" /></p>
+         <button id="convert" type="submit"  class="btn btn-primary" pys-onClick="run">Convert to binary</button>
+         <p>
+         <h4>Binary number:</h4>
+         <textarea id="bin_num" class="form-control" rows="2" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="binary number"></textarea>
+         </p>
+         <h4>Decimal number:</h4>
+         <textarea id="dec_num" class="form-control" rows="2" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="decimal number"></textarea>
+         </p>
+      </div>
+   </body>
+</html>
