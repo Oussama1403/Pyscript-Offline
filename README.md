@@ -1,5 +1,5 @@
 
-# Pyscript-Offline
+# Pyscript-Offline :sparkles:
 
 Installable PyScript application that runs offline.
 
