@@ -8,19 +8,25 @@
       <title>HexToBin</title>
       
       <!-- Pyscript -->
-      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-      <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+      
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
       
       <!-- bootstrap for styling , Pyscript can also be used for styling instead of bootstrap -->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      <!-- bootstrap will be cached auto by the service worker -->
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       
       <!-- roboto font -->
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+      <!-- fonts will be cached auto by the service worker -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+      
       <!-- pwa -->
-      <link rel="manifest" href="pwa/manifest.json">
-      <script src="pwa/app.js"></script>
+      
+        <link rel="manifest" href="./pwa/manifest.json">
+        <script src="./pwa/app.js"></script>
 
       <style>
          body {
@@ -77,7 +83,6 @@ def run(*ags, **kws):
       <div class="container">
          <h1 class="text-center">
             Hex to Binary converter
-            <small class="text-muted">With <a href="https://pyscript.net/" target="_blank"><b>Pyscript</b></a></small>
          </h1>
          <br />
          <p>
@@ -91,6 +96,8 @@ def run(*ags, **kws):
          <h4>Decimal number:</h4>
          <textarea id="dec_num" class="form-control" rows="2" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="decimal number"></textarea>
          </p>
+         <h4 class="text-center text-muted">With <a href="https://pyscript.net/" target="_blank"><b>Pyscript</b></a></h4>
+
       </div>
    </body>
 </html>
